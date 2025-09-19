@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Deployh.AI</title>
+    <!-- Fonts: Inter (default) and DM Sans (for hero heading) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#000000",
+            },
+            fontFamily: {
+              // Inter as the default across the site
+              sans: ["Inter", "ui-sans-serif", "system-ui"],
+              // DM Sans for specific headings
+              dm: ["DM Sans", "ui-sans-serif", "system-ui"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-[#f8f4ef] text-gray-900 font-sans overflow-x-hidden">
+    <!-- Header -->
+    <header class="w-full py-4 px-4 sm:px-8 relative z-20">
+      <div class="max-w-7xl mr-4 mx-auto flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="#" class="inline-block">
+            <img
+              src="assets/img/deployhlogo.png"
+              alt="Deployh AI logo"
+              class="h-12 md:h-16 w-auto object-contain"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center justify-center flex-1 px-8">
+          <div class="flex items-center gap-8 font-medium">
+            <a href="#" class="hover:text-primary transition-colors">About</a>
+            <div class="relative group">
+              <button
+                id="next-gen-ai-btn"
+                class="flex items-center gap-1 hover:text-primary transition-colors cursor-pointer"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                Next-Gen AI
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <!-- Dropdown (hidden by default) -->
+              <div
+                id="next-gen-ai-dropdown"
+                class="absolute left-1/2 -translate-x-1/2 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible bg-white shadow-lg rounded-md p-2 w-48 z-50 transition-all duration-200 ease-in-out"
+              >
+                <a
+                  href="innovation-lab.html"
+                  class="block px-4 py-2 hover:bg-gray-100 rounded transition-colors"
+                  >Innovation Lab</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 rounded transition-colors"
+                  >AI Products</a
+                >
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 rounded transition-colors"
+                  >AI Services</a
+                >
+              </div>
+            </div>
+            <a href="#" class="hover:text-primary transition-colors">Contact</a>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden p-2 -mr-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Slide-out Menu (overlay) -->
+      <div id="mobile-menu" class="fixed inset-0 z-40 hidden md:hidden">
+        <!-- Backdrop -->
+        <div
+          id="mobile-menu-backdrop"
+          class="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300"
+        ></div>
+        <!-- Drawer panel -->
+        <nav
+          id="mobile-menu-panel"
+          class="absolute left-0 top-0 h-full w-80 max-w-[85%] bg-white shadow-xl transform -translate-x-full transition-transform duration-300"
+          aria-label="Mobile navigation"
+        >
+          <div class="px-4 pt-5 pb-6 space-y-1">
+            <a
+              href="#"
+              class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100"
+              >About</a
+            >
+            <div class="px-1 py-2">
+              <button
+                id="mobile-next-gen-ai-btn"
+                class="flex items-center justify-between w-full font-medium text-gray-700 mb-1 hover:text-primary transition-colors"
+                aria-expanded="false"
+              >
+                Next-Gen AI
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform duration-200"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="mobile-next-gen-ai-dropdown"
+                class="pl-3 space-y-1 mt-1 hidden"
+              >
+                <a
+                  href="innovation-lab.html"
+                  class="block py-1 text-sm hover:bg-gray-100 rounded px-2 transition-colors"
+                  >Innovation Lab</a
+                >
+
+                <a
+                  href="#"
+                  class="block py-1 text-sm hover:bg-gray-100 rounded px-2 transition-colors"
+                  >AI Products</a
+                >
+                <a
+                  href="#"
+                  class="block py-1 text-sm hover:bg-gray-100 rounded px-2 transition-colors"
+                  >AI Services</a
+                >
+              </div>
+            </div>
+            <a
+              href="#"
+              class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100"
+              >Contact</a
+            >
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Container with Single Gradient -->
+    <main class="relative overflow-hidden bg-[#f8f4ef] isolate">
+      <!-- Single Gradient Background that spans both sections - Darker orange -->
+      <div
+        class="pointer-events-none absolute top-[200px] right-[-200px] w-[600px] h-[800px] bg-gradient-to-bl from-orange-500/70 via-orange-600/80 to-orange-700/90 rounded-full blur-3xl z-0"
+      ></div>
+
+      <!-- Hero Section -->
+      <section class="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-28">
+        <div class="text-center">
+          <!-- Mobile: 3 lines with 2 words each, Desktop: 2 lines -->
+          <h1 class="font-bold leading-tight font-dm text-gray-900">
+            <!-- Mobile version - hidden on md and up -->
+            <div class="block md:hidden text-4xl sm:text-5xl">
+              <span class="block">Simplify your</span>
+              <span class="block mt-2">SaaS solution</span>
+              <span class="block mt-2">with AI</span>
+            </div>
+            <!-- Desktop version - hidden on mobile -->
+            <div class="hidden md:block text-6xl lg:text-7xl xl:text-8xl">
+              <span class="block">Simplify your SaaS</span>
+              <span class="block mt-2">solution with AI</span>
+            </div>
+          </h1>
+
+          <!-- Mobile: 4 lines, Desktop: normal -->
+          <p
+            class="mt-6 md:mt-8 text-gray-700 max-w-4xl mx-auto leading-relaxed"
+          >
+            <!-- Mobile version - smaller text and line breaks -->
+            <span class="block md:hidden text-base">
+              <span class="block">DeployH.ai is a Next-Gen</span>
+              <span class="block">AI Startup building innovative</span>
+              <span class="block">SaaS platforms for B2B to solve</span>
+              <span class="block"
+                >critical business challenges leveraging intelligent AI
+                engineering technologies.</span
+              >
+            </span>
+            <!-- Desktop version -->
+            <span class="hidden md:block text-lg md:text-xl">
+              DeployH.ai is a Next-Gen AI Startup building innovative SaaS
+              platforms for B2B to solve critical business challenges leveraging
+              intelligent AI engineering technologies.
+            </span>
+          </p>
+        </div>
+
+        <!-- Buttons - Side by side on mobile and desktop -->
+        <div
+          class="mt-8 md:mt-12 flex flex-row justify-center gap-3 md:gap-4 px-4"
+        >
+          <a
+            href="#"
+            class="flex-1 max-w-[140px] md:max-w-none md:flex-none px-4 md:px-8 py-3 text-center rounded-full bg-black text-white font-medium shadow hover:bg-gray-800 text-sm md:text-base"
+            >AI Products</a
+          >
+          <a
+            href="#"
+            class="flex-1 max-w-[140px] md:max-w-none md:flex-none px-4 md:px-8 py-3 text-center rounded-full border border-black font-medium hover:bg-gray-100 text-sm md:text-base"
+            >AI Services</a
+          >
+        </div>
+      </section>
+
+      <!-- Carousel Section -->
+      <section class="relative py-8 md:py-16 lg:py-20 z-10">
+        <div class="relative max-w-[1300px] mx-auto px-4 sm:px-6">
+          <!-- Carousel Container -->
+          <div class="relative">
+            <!-- Carousel Viewport - Responsive height -->
+            <div
+              id="carousel"
+              class="overflow-hidden flex items-center h-[56vw] sm:h-[350px] md:h-[450px] lg:h-[600px]"
+              style="border: none; outline: none"
+            >
+              <div
+                id="carousel-track"
+                class="flex transition-transform duration-500 ease-in-out h-full"
+              >
+                <a
+                  href="https://cyber.deployh.ai/login"
+                  class="w-full flex-shrink-0 block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/img/cyberai-image.jpg"
+                    alt="CYBER AI - Security Savant"
+                    class="h-full w-full object-contain sm:object-cover"
+                    style="border: none; outline: none"
+                  />
+                </a>
+                <a
+                  href="https://thestudentai.in/"
+                  class="w-full flex-shrink-0 block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/img/studentai.png"
+                    alt="Student AI"
+                    class="h-full w-full object-contain sm:object-cover"
+                    style="border: none; outline: none"
+                  />
+                </a>
+                <a
+                  href="https://www.whatsappaitutor.com/"
+                  class="w-full flex-shrink-0 block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/img/whatsapptutor.png"
+                    alt="WhatsApp AI Tutor"
+                    class="h-full w-full object-contain sm:object-cover"
+                    style="border: none; outline: none"
+                  />
+                </a>
+                <a
+                  href="https://quickcontracts.in/"
+                  class="w-full flex-shrink-0 block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/img/quickcontracts.png"
+                    alt="Quick Contracts"
+                    class="h-full w-full object-contain sm:object-cover"
+                    style="border: none; outline: none"
+                  />
+                </a>
+                <!-- New 5th slide: Quick Contracts Dashboard -->
+                <a
+                  href="https://quickcontracts.in/"
+                  class="w-full flex-shrink-0 block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/img/quickcontractsdashborad.png"
+                    alt="Quick Contracts Dashboard"
+                    class="h-full w-full object-contain sm:object-cover"
+                    style="border: none; outline: none"
+                  />
+                </a>
+                <a
+                  href="https://www.whatsappaitutor.com/"
+                  class="w-full flex-shrink-0 block"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="assets/img/whatsappmobile.jpg"
+                    alt="WhatsApp AI Tutor Mobile"
+                    class="h-full w-full object-contain bg-black p-2 md:p-4"
+                    style="border: none; outline: none"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <!-- Prev/Next buttons - Responsive sizing -->
+            <button
+              id="carousel-prev"
+              aria-label="Previous slide"
+              class="absolute left-2 md:-left-8 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 text-gray-800 rounded-full p-2 md:p-3 shadow-lg transition-all duration-200 transform hover:scale-110"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 md:h-5 md:w-5 lg:h-6 lg:w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button
+              id="carousel-next"
+              aria-label="Next slide"
+              class="absolute right-2 md:-right-8 top-1/2 -translate-y-1/2 bg-white hover:bg-gray-100 text-gray-800 rounded-full p-2 md:p-3 shadow-lg transition-all duration-200 transform hover:scale-110"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4 md:h-5 md:w-5 lg:h-6 lg:w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+
+            <!-- Dots - Responsive spacing -->
+            <div
+              id="carousel-dots"
+              class="flex justify-center mt-4 md:mt-8 space-x-2"
+            >
+              <button
+                class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-900 transition-colors"
+                data-index="0"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors"
+                data-index="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors"
+                data-index="2"
+                aria-label="Slide 3"
+              ></button>
+              <button
+                class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors"
+                data-index="3"
+                aria-label="Slide 4"
+              ></button>
+              <button
+                class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors"
+                data-index="4"
+                aria-label="Slide 5"
+              ></button>
+              <button
+                class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors"
+                data-index="5"
+                aria-label="Slide 6"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Logo Carousel Section -->
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-16">
+        <p class="text-center text-gray-700 mb-8 max-w-3xl mx-auto">
+          Companies of all sizes trust us to find AI SaaS critical to their
+          growth and innovation
+        </p>
+
+        <div class="relative">
+          <!-- Logo track -->
+          <div class="overflow-hidden">
+            <div
+              id="logo-track"
+              class="flex transition-transform duration-1000 ease-in-out"
+            >
+              <!-- logos -->
+              <div
+                class="flex-shrink-0 w-1/5 flex justify-center items-center px-2"
+              >
+                <img
+                  src="assets/img/openai.png"
+                  alt="OpenAI"
+                  class="h-8 md:h-10 object-contain"
+                />
+              </div>
+              <div
+                class="flex-shrink-0 w-1/5 flex justify-center items-center px-2"
+              >
+                <img
+                  src="assets/img/googlebrand.png"
+                  alt="Google"
+                  class="h-8 md:h-10 object-contain"
+                />
+              </div>
+              <div
+                class="flex-shrink-0 w-1/5 flex justify-center items-center px-2"
+              >
+                <img
+                  src="assets/img/Jasper.png"
+                  alt="Jasper"
+                  class="h-8 md:h-10 object-contain"
+                />
+              </div>
+              <div
+                class="flex-shrink-0 w-1/5 flex justify-center items-center px-2"
+              >
+                <img
+                  src="assets/img/huggingface.png"
+                  alt="Hugging Face"
+                  class="h-8 md:h-10 object-contain"
+                />
+              </div>
+              <div
+                class="flex-shrink-0 w-1/5 flex justify-center items-center px-2"
+              >
+                <img
+                  src="assets/img/chatgpt.png"
+                  alt="ChatGPT"
+                  class="h-8 md:h-10 object-contain"
+                />
+              </div>
+              <div
+                class="flex-shrink-0 w-1/5 flex justify-center items-center px-2"
+              >
+                <img
+                  src="assets/img/dall-e-logo-png-1024x282.png"
+                  alt="DALL-E"
+                  class="h-8 md:h-10 object-contain"
+                />
+              </div>
+              <div
+                class="flex-shrink-0 w-1/5 flex justify-center items-center px-2"
+              >
+                <img
+                  src="assets/img/quillbot.png"
+                  alt="Quillbot"
+                  class="h-8 md:h-10 object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Link to external script file -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
