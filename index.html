@@ -34,14 +34,16 @@
   <body class="bg-[#f8f4ef] text-gray-900 font-sans overflow-x-hidden">
     <!-- Header -->
     <header class="w-full py-4 px-4 sm:px-8 relative z-20">
-      <div class="max-w-7xl mr-4 mx-auto flex items-center justify-between">
+      <div
+        class="max-w-7xl mt-[-12px] mx-auto flex items-center justify-between"
+      >
         <!-- Logo -->
         <div class="flex-shrink-0">
           <a href="#" class="inline-block">
             <img
               src="assets/img/deployhlogo.png"
               alt="Deployh AI logo"
-              class="h-12 md:h-16 w-auto object-contain"
+              class="h-20 md:h-20 w-auto object-contain"
               loading="eager"
               decoding="async"
             />
@@ -50,12 +52,16 @@
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center justify-center flex-1 px-8">
-          <div class="flex items-center gap-8 font-medium">
-            <a href="#" class="hover:text-primary transition-colors">About</a>
+          <div class="flex items-center gap-8">
+            <a
+              href="#"
+              class="text-base font-semibold hover:text-primary transition-colors"
+              >About</a
+            >
             <div class="relative group">
               <button
                 id="next-gen-ai-btn"
-                class="flex items-center gap-1 hover:text-primary transition-colors cursor-pointer"
+                class="flex items-center gap-1 text-base font-semibold hover:text-primary transition-colors cursor-pointer"
                 aria-expanded="false"
                 aria-haspopup="true"
               >
@@ -82,22 +88,26 @@
               >
                 <a
                   href="innovation-lab.html"
-                  class="block px-4 py-2 hover:bg-gray-100 rounded transition-colors"
+                  class="block px-4 py-2 hover:bg-gray-100 rounded transition-colors text-base font-semibold"
                   >Innovation Lab</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 rounded transition-colors"
+                  class="block px-4 py-2 hover:bg-gray-100 rounded transition-colors text-base font-semibold"
                   >AI Products</a
                 >
                 <a
                   href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 rounded transition-colors"
+                  class="block px-4 py-2 hover:bg-gray-100 rounded transition-colors text-base font-semibold"
                   >AI Services</a
                 >
               </div>
             </div>
-            <a href="#" class="hover:text-primary transition-colors">Contact</a>
+            <a
+              href="#"
+              class="text-base font-semibold hover:text-primary transition-colors"
+              >Contact</a
+            >
           </div>
         </nav>
 
@@ -201,39 +211,49 @@
       ></div>
 
       <!-- Hero Section -->
-      <section class="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-28">
+      <section
+        class="relative z-10 max-w-7xl mx-auto px-6 py-4 md:pt-16 lg:py-20"
+      >
         <div class="text-center">
           <!-- Mobile: 3 lines with 2 words each, Desktop: 2 lines -->
-          <h1 class="font-bold leading-tight font-dm text-gray-900">
+          <h1 class="font-black leading-tight font-dm text-gray-900">
             <!-- Mobile version - hidden on md and up -->
-            <div class="block md:hidden text-4xl sm:text-5xl">
-              <span class="block">Simplify your</span>
-              <span class="block mt-2">SaaS solution</span>
-              <span class="block mt-2">with AI</span>
+            <div class="block md:hidden">
+              <div
+                class="mt-[-20px] mb-[-12px] text-4xl xs:text-5xl sm:text-6xl font-black leading-tight"
+              >
+                <div>Simplify your</div>
+                <div>SaaS solution</div>
+                <div>with AI</div>
+              </div>
             </div>
             <!-- Desktop version - hidden on mobile -->
-            <div class="hidden md:block text-6xl lg:text-7xl xl:text-8xl">
-              <span class="block">Simplify your SaaS</span>
-              <span class="block mt-2">solution with AI</span>
+            <div
+              class="hidden md:block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-tight max-w-none"
+            >
+              Simplify your SaaS solution with AI
             </div>
           </h1>
 
           <!-- Mobile: 4 lines, Desktop: normal -->
           <p
-            class="mt-6 md:mt-8 text-gray-700 max-w-4xl mx-auto leading-relaxed"
+            class="mt-6 mb-[-12px] md:mt-8 text-gray-700 max-w-4xl mx-auto leading-relaxed"
           >
             <!-- Mobile version - smaller text and line breaks -->
-            <span class="block md:hidden text-base">
-              <span class="block">DeployH.ai is a Next-Gen</span>
-              <span class="block">AI Startup building innovative</span>
-              <span class="block">SaaS platforms for B2B to solve</span>
+            <span class="block md:hidden text-base font-semibold">
               <span class="block"
-                >critical business challenges leveraging intelligent AI
-                engineering technologies.</span
+                >DeployH.ai is a Next-Gen AI Startup building</span
+              >
+              <span class="block"
+                >innovative SaaS platforms for B2B to solve</span
+              >
+              <span class="block">critical business challenges leveraging</span>
+              <span class="block"
+                >intelligent AI engineering technologies.</span
               >
             </span>
             <!-- Desktop version -->
-            <span class="hidden md:block text-lg md:text-xl">
+            <span class="hidden md:block text-lg md:text-xl font-semibold">
               DeployH.ai is a Next-Gen AI Startup building innovative SaaS
               platforms for B2B to solve critical business challenges leveraging
               intelligent AI engineering technologies.
@@ -247,19 +267,28 @@
         >
           <a
             href="#"
-            class="flex-1 max-w-[140px] md:max-w-none md:flex-none px-4 md:px-8 py-3 text-center rounded-full bg-black text-white font-medium shadow hover:bg-gray-800 text-sm md:text-base"
-            >AI Products</a
+            class="group relative flex-1 max-w-[140px] md:max-w-none md:flex-none px-4 md:px-8 py-3 text-center rounded-full bg-black text-white font-bold shadow overflow-hidden text-sm md:text-base"
           >
+            <span class="relative z-10">AI Products</span>
+            <span class="absolute inset-0 bg-orange-700 transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-in-out"></span>
+          </a>
           <a
             href="#"
-            class="flex-1 max-w-[140px] md:max-w-none md:flex-none px-4 md:px-8 py-3 text-center rounded-full border border-black font-medium hover:bg-gray-100 text-sm md:text-base"
-            >AI Services</a
+            class="group relative flex-1 max-w-[140px] md:max-w-none md:flex-none px-4 md:px-8 py-3 text-center rounded-full border border-black font-bold overflow-hidden text-sm md:text-base"
           >
+            <span class="relative z-10 group-hover:text-white transition-colors duration-300">AI Services</span>
+            <span class="absolute inset-0 bg-orange-700 bg-opacity-10 group-hover:bg-opacity-100 transform origin-top scale-y-0 group-hover:scale-y-100 transition-all duration-300 ease-in-out"></span>
+          </a>
         </div>
+        <style>
+          .group:hover .group-hover\:text-white {
+            color: white;
+          }
+        </style>
       </section>
 
       <!-- Carousel Section -->
-      <section class="relative py-8 md:py-16 lg:py-20 z-10">
+      <section class="relative pt-1 pb-8 md:py-16 lg:py-20 z-10">
         <div class="relative max-w-[1300px] mx-auto px-4 sm:px-6">
           <!-- Carousel Container -->
           <div class="relative">
